@@ -19,17 +19,17 @@ __Important configuration files:__
 ```vi /usr/local/etc/elasticsearch/elasticsearch.yml```   
 ```vi /usr/local/etc/elasticsearch/logging.yml```
 
-Add the following lines to elasticsearch.yml:  
+* Add the following lines to elasticsearch.yml:  
 ```http.cors.allow-origin: "/.*/"```  
 ```http.cors.enabled: true```  
 
-Change the cluster name to just elasticsearch in elasticsearch.yml:  
+* Change the cluster name to just elasticsearch in elasticsearch.yml:  
 ```cluster.name: elasticsearch```  
 
-Create a patterns directory:  
+* Create a patterns directory:  
 ```mkdir /usr/local/logstash/patterns.d/```  
 
-Create an apache-errors file in ```/Users/username/patterns.d/apache-error:```  
+* Create an apache-errors file in ```/Users/username/patterns.d/apache-error:```  
 ```APACHE_ERROR_LOG \[(?<timestamp>%{DAY:day} %{MONTH:month} %{MONTHDAY} %{TIME} %{YEAR})\] \[.*:%{LOGLEVEL:loglevel}\] \[pid %{NUMBER:pid}\] \[client %{IP:clientip}:.*\] %{GREEDYDATA:message}```
 
 Create /Users/username/logstash/logstash.conf:
@@ -47,7 +47,6 @@ Create /Users/username/logstash/logstash.conf:
     type => "apache_error_log"
   }
 }
- 
 filter {
   if [type] == "apache_access_log" {
     mutate { replace => { "type" => "apache-access" } }
@@ -77,7 +76,6 @@ filter {
     }
   }
 }
- 
 output {
   elasticsearch { host => localhost }
   stdout { codec => rubydebug }
@@ -85,18 +83,18 @@ output {
  
 __Testing Install__
 
-To verify that elasticsearch is running, visit port 9200 on whatever host you've set it up on:  
+* To verify that elasticsearch is running, visit port 9200 on whatever host you've set it up on:  
 http://localhost:9200/  
 
-To perform a search:  
+* To perform a search:  
 http://localhost:9200/_search?pretty  
 
-To view the mappings:  
+* To view the mappings:  
 http://localhost:9200/_mappings?pretty  
 
-To view cluster health:  
+* To view cluster health:  
 http://localhost:9200/_cluster/health?pretty  
 
-__Start up__
+__Start up__  
 <code>elasticsearch</code>  
 <code>logstash agent -f ~/logstash/logstash.conf</code>
