@@ -1,4 +1,4 @@
-__Installing ELK Stack__  
+__Installing ELK Stack in Mac OS X__  
 _Elasticsearch:_  
 ```brew install elasticsearch``` 
 
