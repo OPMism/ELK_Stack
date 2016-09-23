@@ -1,11 +1,17 @@
-Data Node:
+__Data Node:__
+```
 node.master=false
 node.data=true
+```
 
-Master Node:
+__Master Node:__
+```
 node.master=true
 node.data=false
+```
 
-Client Node:
+__Client Node:__
+```
 node.master=false
 node.data=false
+```
