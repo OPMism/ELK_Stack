@@ -7,9 +7,9 @@ _Logstash:_
 
 _Kibana_  
 * Download the latest kibana from [KibanaURL](https://www.elastic.co/downloads/kibana)  
-```wget https://download.elastic.co/kibana/kibana/kibana-3.1.3.tar.gz```  
+```wget https://download.elastic.co/kibana/kibana/kibana-4.6.1-darwin-x86_64.tar.gz```  
 * Unarchive kibana into your webspace:  
-```tar zxvf kibana-3.1.3.tar.gz```  
+```tar zxvf kibana-4.6.1-darwin-x86_64.tar.gz```  
 
 __Configuring ELK Stack__
 Get elasticsearch configuration file information from homebrew:  
